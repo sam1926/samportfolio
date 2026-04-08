@@ -42,7 +42,7 @@
 }
 
 .hero__meta--tl {
-  top: 2.5rem;
+  top: 5.5rem;
   left: 3rem;
 }
 
@@ -123,7 +123,7 @@
 /* ---- Mobile ---- */
 @media (max-width: 768px) {
   .hero__meta--tl {
-    top: 1.5rem;
+    top: 4.5rem;
     left: 1.5rem;
   }
 
