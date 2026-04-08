@@ -8,9 +8,9 @@ export default defineConfig({
     // Split vendor chunks so React/GSAP are cached separately from app code
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          gsap:   ['gsap'],
+        manualChunks(id) {
+          if (id.includes('node_modules/gsap')) return 'gsap'
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'vendor'
         },
       },
     },
