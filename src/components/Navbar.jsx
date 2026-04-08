@@ -14,7 +14,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    // Entrance animation
     gsap.fromTo(
       navRef.current,
       { y: -80, opacity: 0 },
@@ -26,50 +25,78 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Prevent body scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   return (
-    <nav
-      className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
-      ref={navRef}
-    >
-      <a
-        href="#hero"
-        className="navbar__logo mono"
-        onClick={(e) => {
-          e.preventDefault()
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }}
+    <>
+      <nav
+        className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
+        ref={navRef}
       >
-        <span className="navbar__logo-dot" />
-        S . V
-      </a>
+        <a
+          href="#hero"
+          className="navbar__logo mono"
+          onClick={(e) => {
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+        >
+          <span className="navbar__logo-dot" />
+          S . V
+        </a>
 
-      <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-        {navLinks.map((l) => (
-          <li key={l.label}>
-            <a
-              href={l.href}
-              className="navbar__link mono"
-              onClick={(e) => {
-                e.preventDefault()
-                setMenuOpen(false)
-                const target = document.querySelector(l.href)
-                if (target) target.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              {l.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+        {/* Desktop links */}
+        <ul className="navbar__links">
+          {navLinks.map((l) => (
+            <li key={l.label}>
+              <a href={l.href} className="navbar__link mono"
+                onClick={(e) => {
+                  e.preventDefault()
+                  const target = document.querySelector(l.href)
+                  if (target) target.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-      <button
-        className={`navbar__burger ${menuOpen ? 'navbar__burger--open' : ''}`}
-        aria-label="Toggle menu"
-        onClick={() => setMenuOpen((v) => !v)}
-      >
-        <span />
-        <span />
-      </button>
-    </nav>
+        <button
+          className={`navbar__burger ${menuOpen ? 'navbar__burger--open' : ''}`}
+          aria-label="Toggle menu"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span />
+          <span />
+        </button>
+      </nav>
+
+      {/* Mobile overlay — rendered as sibling of nav to avoid stacking context */}
+      <div className={`nav-overlay ${menuOpen ? 'nav-overlay--open' : ''}`}>
+        <ul className="nav-overlay__links">
+          {navLinks.map((l) => (
+            <li key={l.label}>
+              <a
+                href={l.href}
+                className="nav-overlay__link mono"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setMenuOpen(false)
+                  const target = document.querySelector(l.href)
+                  if (target) target.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }
