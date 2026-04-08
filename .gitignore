@@ -5,8 +5,5 @@ dist/
 .DS_Store
 *.local
 
-# Large media files — too large for GitHub
+# Raw source/drop files — too large for GitHub
 drop/
-*.mp4
-*.mov
-*.MOV
