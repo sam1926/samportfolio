@@ -1,0 +1,138 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  background: var(--color-bg-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---- Hero Video ---- */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+/* ---- Corner Metadata ---- */
+.hero__meta {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 2;
+}
+
+.hero__meta--tl {
+  top: 2.5rem;
+  left: 3rem;
+}
+
+.hero__meta--br {
+  bottom: 2.5rem;
+  right: 3rem;
+  text-align: right;
+}
+
+.hero__meta .mono {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+}
+
+.hero__meta-name,
+.hero__meta-year {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ---- Central Title ---- */
+.hero__center {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 9vw, 10rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--color-white);
+  font-style: normal;
+  text-transform: uppercase;
+  perspective: 800px;
+  /* chars split in JS */
+}
+
+.hero__title .char {
+  display: inline-block;
+  transform-origin: bottom center;
+}
+
+.hero__subtitle {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+}
+
+/* ---- Scroll Hint ---- */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.hero__scroll-hint .mono {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,49,49,0.8), transparent);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .hero__meta--tl {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .hero__meta--br {
+    bottom: 5rem;
+    right: 1.5rem;
+  }
+
+  .hero__scroll-hint {
+    bottom: 1.5rem;
+  }
+}

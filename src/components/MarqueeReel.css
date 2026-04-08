@@ -1,0 +1,42 @@
+.marquee {
+  background: var(--color-neon-red);
+  overflow: hidden;
+  padding: 0.85rem 0;
+  white-space: nowrap;
+}
+
+/* Animate translateX by exactly 25% — one quarter of 4× repeated content */
+@keyframes marquee-fwd {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
+@keyframes marquee-rev {
+  from { transform: translateX(-25%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  will-change: transform;
+  animation: marquee-fwd 30s linear infinite;
+}
+
+.marquee__track--reverse {
+  animation: marquee-rev 30s linear infinite;
+}
+
+.marquee__item {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--color-white);
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.marquee__star {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.5rem;
+}

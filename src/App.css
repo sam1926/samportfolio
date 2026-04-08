@@ -1,0 +1,20 @@
+.page {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+}
+
+.page--visible {
+  opacity: 1;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+}

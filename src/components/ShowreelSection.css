@@ -1,0 +1,136 @@
+.showreel {
+  background: var(--color-bg-black);
+  padding: 2rem 3rem 6rem;
+}
+
+.showreel__header {
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.showreel__label {
+  color: var(--color-neon-red);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+}
+
+.showreel__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-style: normal;
+  color: var(--color-white);
+}
+
+.showreel__heading em {
+  color: var(--color-neon-red);
+  font-style: normal;
+}
+
+/* ---- Layout ---- */
+.showreel__content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Video row — centred */
+.showreel__videos {
+  display: flex;
+  justify-content: center;
+}
+
+/* Images row — two equal columns */
+.showreel__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+/* ---- Shared card ---- */
+.featcard {
+  position: relative;
+  overflow: hidden;
+  background: #080808;
+}
+
+.featcard__media {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: initial;
+  filter: grayscale(20%) brightness(0.9);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.featcard:hover .featcard__media {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.02);
+}
+
+/* Video card spans full available width up to a readable max */
+.featcard--video {
+  width: 100%;
+  max-width: 780px;
+}
+
+.featcard--video .featcard__media {
+  aspect-ratio: 16/9; /* fallback until metadata loads */
+  object-fit: cover;
+}
+
+/* ---- Info overlay ---- */
+.featcard__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.featcard:hover .featcard__info,
+.featcard--video .featcard__info {
+  opacity: 1;
+}
+
+.featcard__role {
+  color: var(--color-neon-red);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+
+.featcard__year {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 900px) {
+  .showreel {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .showreel__images {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .featcard--video {
+    max-width: 100%;
+  }
+}

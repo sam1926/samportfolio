@@ -1,0 +1,110 @@
+.footer {
+  background: var(--color-bg-cream);
+  color: var(--color-black);
+  overflow: hidden;
+}
+
+.footer__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ---- Top heading ---- */
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 9rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-style: normal;
+  color: var(--color-black);
+}
+
+.footer__heading em {
+  color: var(--color-neon-red);
+  font-style: normal;
+}
+
+.footer__available {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(0,0,0,0.35);
+}
+
+/* ---- Table ---- */
+.footer__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.footer__row:last-child {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer__row:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+.footer__row-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(0,0,0,0.35);
+  min-width: 120px;
+}
+
+.footer__row-value {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-black);
+  transition: color 0.3s ease;
+}
+
+a.footer__row-value:hover {
+  color: var(--color-neon-red);
+}
+
+/* ---- Bottom bar ---- */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 1.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(0,0,0,0.3);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .footer__inner {
+    padding: 5rem 1.5rem 3rem;
+    gap: 3.5rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

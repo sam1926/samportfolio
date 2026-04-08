@@ -1,0 +1,481 @@
+{
+  "bio": [
+    {
+      "slug": "sam",
+      "src": "/images/bio/sam.jpg",
+      "title": "Sam",
+      "role": "Photography",
+      "year": "2026"
+    }
+  ],
+  "featured": [
+    {
+      "slug": "dsc04688",
+      "src": "/images/featured/dsc04688.jpg",
+      "type": "image",
+      "title": "Dsc04688",
+      "role": "Featured",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc06207",
+      "src": "/images/featured/dsc06207.jpg",
+      "type": "image",
+      "title": "Dsc06207",
+      "role": "Featured",
+      "year": "2026"
+    },
+    {
+      "slug": "final-grade-bris",
+      "src": "/videos/featured/final-grade-bris.mov",
+      "type": "video",
+      "title": "Final Grade Bris",
+      "role": "Featured",
+      "year": "2026"
+    }
+  ],
+  "videography": [
+    {
+      "slug": "nebo2",
+      "src": "/videos/videography/nebo2.mp4",
+      "type": "video",
+      "title": "Nebo2",
+      "role": "Videography",
+      "year": "2026"
+    },
+    {
+      "slug": "photomeet-color",
+      "src": "/videos/videography/photomeet-color.mp4",
+      "type": "video",
+      "title": "Photomeet Color",
+      "role": "Videography",
+      "year": "2026"
+    },
+    {
+      "slug": "lakeview",
+      "src": "/videos/videography/lakeview.mp4",
+      "type": "video",
+      "title": "Lakeview",
+      "role": "Videography",
+      "year": "2026"
+    },
+    {
+      "slug": "sonolumo-final",
+      "src": "/videos/videography/sonolumo-final.mp4",
+      "type": "video",
+      "title": "Sonolumo Final",
+      "role": "Videography",
+      "year": "2026"
+    },
+    {
+      "slug": "final-grade-bris",
+      "src": "/videos/videography/final-grade-bris.mov",
+      "type": "video",
+      "title": "Final Grade Bris",
+      "role": "Videography",
+      "year": "2026"
+    }
+  ],
+  "portraits": [
+    {
+      "slug": "7f885ba9-1f01-44cf-871d-12428b5834c6",
+      "src": "/images/portraits/7f885ba9-1f01-44cf-871d-12428b5834c6.jpg",
+      "type": "image",
+      "title": "7f885ba9 1f01 44cf 871d 12428b5834c6",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "82ab3762-85f4-466e-9f22-229346ecefb0",
+      "src": "/images/portraits/82ab3762-85f4-466e-9f22-229346ecefb0.jpg",
+      "type": "image",
+      "title": "82ab3762 85f4 466e 9f22 229346ecefb0",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc00637",
+      "src": "/images/portraits/dsc00637.jpg",
+      "type": "image",
+      "title": "Dsc00637",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc00699",
+      "src": "/images/portraits/dsc00699.jpg",
+      "type": "image",
+      "title": "Dsc00699",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc00817",
+      "src": "/images/portraits/dsc00817.jpg",
+      "type": "image",
+      "title": "Dsc00817",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc00821",
+      "src": "/images/portraits/dsc00821.jpg",
+      "type": "image",
+      "title": "Dsc00821",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc01027",
+      "src": "/images/portraits/dsc01027.jpg",
+      "type": "image",
+      "title": "Dsc01027",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc01031",
+      "src": "/images/portraits/dsc01031.jpg",
+      "type": "image",
+      "title": "Dsc01031",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-44",
+      "src": "/images/portraits/light-44.jpg",
+      "type": "image",
+      "title": "Light 44",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-55",
+      "src": "/images/portraits/light-55.jpg",
+      "type": "image",
+      "title": "Light 55",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-56",
+      "src": "/images/portraits/light-56.jpg",
+      "type": "image",
+      "title": "Light 56",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-57",
+      "src": "/images/portraits/light-57.jpg",
+      "type": "image",
+      "title": "Light 57",
+      "role": "Portrait Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-58",
+      "src": "/images/portraits/light-58.jpg",
+      "type": "image",
+      "title": "Light 58",
+      "role": "Portrait Photography",
+      "year": "2026"
+    }
+  ],
+  "automotive": [
+    {
+      "slug": "dsc01474",
+      "src": "/images/automotive/dsc01474.jpg",
+      "type": "image",
+      "title": "Dsc01474",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc01571",
+      "src": "/images/automotive/dsc01571.jpg",
+      "type": "image",
+      "title": "Dsc01571",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc01574",
+      "src": "/images/automotive/dsc01574.jpg",
+      "type": "image",
+      "title": "Dsc01574",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc01575",
+      "src": "/images/automotive/dsc01575.jpg",
+      "type": "image",
+      "title": "Dsc01575",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc06181",
+      "src": "/images/automotive/dsc06181.jpg",
+      "type": "image",
+      "title": "Dsc06181",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc06192",
+      "src": "/images/automotive/dsc06192.jpg",
+      "type": "image",
+      "title": "Dsc06192",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc06207",
+      "src": "/images/automotive/dsc06207.jpg",
+      "type": "image",
+      "title": "Dsc06207",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc06252",
+      "src": "/images/automotive/dsc06252.jpg",
+      "type": "image",
+      "title": "Dsc06252",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-13",
+      "src": "/images/automotive/light-13.jpg",
+      "type": "image",
+      "title": "Light 13",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-15",
+      "src": "/images/automotive/light-15.jpg",
+      "type": "image",
+      "title": "Light 15",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-16",
+      "src": "/images/automotive/light-16.jpg",
+      "type": "image",
+      "title": "Light 16",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-47",
+      "src": "/images/automotive/light-47.jpg",
+      "type": "image",
+      "title": "Light 47",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-49",
+      "src": "/images/automotive/light-49.jpg",
+      "type": "image",
+      "title": "Light 49",
+      "role": "Automotive Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "light-53",
+      "src": "/images/automotive/light-53.jpg",
+      "type": "image",
+      "title": "Light 53",
+      "role": "Automotive Photography",
+      "year": "2026"
+    }
+  ],
+  "lifestyle": [
+    {
+      "slug": "6d65a41a-7db6-46f3-a99d-a9adead66694",
+      "src": "/images/lifestyle/6d65a41a-7db6-46f3-a99d-a9adead66694.jpg",
+      "type": "image",
+      "title": "6d65a41a 7db6 46f3 A99d A9adead66694",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "d9cf644f-7bb0-4cad-8084-6e1ca975840e",
+      "src": "/images/lifestyle/d9cf644f-7bb0-4cad-8084-6e1ca975840e.jpg",
+      "type": "image",
+      "title": "D9cf644f 7bb0 4cad 8084 6e1ca975840e",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05015",
+      "src": "/images/lifestyle/dsc05015.jpg",
+      "type": "image",
+      "title": "Dsc05015",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05152",
+      "src": "/images/lifestyle/dsc05152.jpg",
+      "type": "image",
+      "title": "Dsc05152",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05178",
+      "src": "/images/lifestyle/dsc05178.jpg",
+      "type": "image",
+      "title": "Dsc05178",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05302",
+      "src": "/images/lifestyle/dsc05302.jpg",
+      "type": "image",
+      "title": "Dsc05302",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05308",
+      "src": "/images/lifestyle/dsc05308.jpg",
+      "type": "image",
+      "title": "Dsc05308",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05314",
+      "src": "/images/lifestyle/dsc05314.jpg",
+      "type": "image",
+      "title": "Dsc05314",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05368",
+      "src": "/images/lifestyle/dsc05368.jpg",
+      "type": "image",
+      "title": "Dsc05368",
+      "role": "Lifestyle Photography",
+      "year": "2026"
+    }
+  ],
+  "events": [
+    {
+      "slug": "dsc05925",
+      "src": "/images/events/dsc05925.jpg",
+      "type": "image",
+      "title": "Dsc05925",
+      "role": "Event Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05944",
+      "src": "/images/events/dsc05944.jpg",
+      "type": "image",
+      "title": "Dsc05944",
+      "role": "Event Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc05958",
+      "src": "/images/events/dsc05958.jpg",
+      "type": "image",
+      "title": "Dsc05958",
+      "role": "Event Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "img0751",
+      "src": "/images/events/img0751.jpg",
+      "type": "image",
+      "title": "Img0751",
+      "role": "Event Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "img0763",
+      "src": "/images/events/img0763.jpg",
+      "type": "image",
+      "title": "Img0763",
+      "role": "Event Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "img0792",
+      "src": "/images/events/img0792.jpg",
+      "type": "image",
+      "title": "Img0792",
+      "role": "Event Photography",
+      "year": "2026"
+    }
+  ],
+  "misc": [
+    {
+      "slug": "c0209t01",
+      "src": "/images/misc/c0209t01.jpg",
+      "type": "image",
+      "title": "C0209t01",
+      "role": "Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc02016",
+      "src": "/images/misc/dsc02016.jpg",
+      "type": "image",
+      "title": "Dsc02016",
+      "role": "Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc02021",
+      "src": "/images/misc/dsc02021.jpg",
+      "type": "image",
+      "title": "Dsc02021",
+      "role": "Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc02029",
+      "src": "/images/misc/dsc02029.jpg",
+      "type": "image",
+      "title": "Dsc02029",
+      "role": "Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc03045",
+      "src": "/images/misc/dsc03045.jpg",
+      "type": "image",
+      "title": "Dsc03045",
+      "role": "Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc03119",
+      "src": "/images/misc/dsc03119.jpg",
+      "type": "image",
+      "title": "Dsc03119",
+      "role": "Photography",
+      "year": "2026"
+    },
+    {
+      "slug": "dsc06114",
+      "src": "/images/misc/dsc06114.jpg",
+      "type": "image",
+      "title": "Dsc06114",
+      "role": "Photography",
+      "year": "2026"
+    }
+  ]
+}
