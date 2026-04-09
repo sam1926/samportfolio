@@ -41,6 +41,14 @@
   color: rgba(0,0,0,0.35);
 }
 
+/* ---- Body: table + form side by side ---- */
+.footer__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
 /* ---- Table ---- */
 .footer__table {
   display: flex;
@@ -83,6 +91,93 @@ a.footer__row-value:hover {
   color: var(--color-neon-red);
 }
 
+/* ---- Contact Form ---- */
+.footer__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer__form-group--grow {
+  flex: 1;
+}
+
+.footer__form-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(0,0,0,0.35);
+}
+
+.footer__form-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  padding: 0.6rem 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-black);
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.footer__form-input::placeholder {
+  color: rgba(0,0,0,0.25);
+}
+
+.footer__form-input:focus {
+  border-bottom-color: var(--color-neon-red);
+}
+
+.footer__form-textarea {
+  resize: none;
+  line-height: 1.6;
+}
+
+.footer__form-btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-black);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  cursor: none;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer__form-btn:hover:not(:disabled) {
+  background: var(--color-neon-red);
+  border-color: var(--color-neon-red);
+}
+
+.footer__form-btn:disabled {
+  opacity: 0.5;
+}
+
+.footer__form-success {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--color-neon-red);
+  margin-top: 0.5rem;
+}
+
+.footer__form-error {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: rgba(0,0,0,0.45);
+  margin-top: 0.25rem;
+}
+
 /* ---- Bottom bar ---- */
 .footer__bottom {
   display: flex;
@@ -100,6 +195,16 @@ a.footer__row-value:hover {
   .footer__inner {
     padding: 5rem 1.5rem 3rem;
     gap: 3.5rem;
+  }
+
+  .footer__body {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer__form-btn {
+    align-self: stretch;
+    text-align: center;
   }
 
   .footer__bottom {

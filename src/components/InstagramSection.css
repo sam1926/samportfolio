@@ -1,0 +1,160 @@
+.ig-section {
+  background: var(--color-bg-black);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.ig-section__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* ---- Header ---- */
+.ig-section__head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ig-section__label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--color-neon-red);
+  text-transform: uppercase;
+}
+
+.ig-section__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-style: normal;
+  color: var(--color-white);
+}
+
+.ig-section__heading em {
+  color: var(--color-neon-red);
+  font-style: normal;
+}
+
+.ig-section__handle {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.ig-section__handle:hover {
+  color: var(--color-neon-red);
+}
+
+/* ---- 3×2 Image Grid ---- */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.ig-grid__cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: block;
+}
+
+.ig-grid__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.6s ease;
+  filter: grayscale(20%);
+}
+
+.ig-grid__cell:hover .ig-grid__img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.ig-grid__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+.ig-grid__cell:hover .ig-grid__overlay {
+  background: rgba(0,0,0,0.45);
+}
+
+.ig-grid__icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-white);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ig-grid__cell:hover .ig-grid__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Follow CTA ---- */
+.ig-section__cta {
+  display: flex;
+  justify-content: center;
+}
+
+.ig-section__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 2.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.ig-section__btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.ig-section__btn:hover {
+  border-color: var(--color-neon-red);
+  color: var(--color-neon-red);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .ig-section__inner {
+    padding: 5rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .ig-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

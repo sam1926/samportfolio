@@ -10,6 +10,7 @@ import MarqueeReel from './components/MarqueeReel'
 import AboutSplit from './components/AboutSplit'
 import ShowreelSection from './components/ShowreelSection'
 import ProjectGallery from './components/ProjectGallery'
+import InstagramSection from './components/InstagramSection'
 import FooterTable from './components/FooterTable'
 
 import './App.css'
@@ -60,7 +61,10 @@ export default function App() {
           {/* 4. Dark project grid */}
           <ProjectGallery />
 
-          {/* 5. Light footer / contact */}
+          {/* 5. Instagram feed */}
+          <InstagramSection />
+
+          {/* 6. Light footer / contact */}
           <FooterTable />
         </main>
       </div>

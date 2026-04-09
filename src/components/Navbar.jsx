@@ -78,6 +78,14 @@ export default function Navbar() {
 
       {/* Mobile overlay — rendered as sibling of nav to avoid stacking context */}
       <div className={`nav-overlay ${menuOpen ? 'nav-overlay--open' : ''}`}>
+        <button
+          className="nav-overlay__close"
+          aria-label="Close menu"
+          onClick={() => setMenuOpen(false)}
+        >
+          <span />
+          <span />
+        </button>
         <ul className="nav-overlay__links">
           {navLinks.map((l) => (
             <li key={l.label}>
