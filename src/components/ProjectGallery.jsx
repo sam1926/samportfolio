@@ -130,7 +130,9 @@ function ProjectCard({ project }) {
 // ── Gallery section ───────────────────────────────────────────────────────────
 export default function ProjectGallery() {
   const sectionsRef = useRef([])
-  const [portraitCols, setPortraitCols] = useState(4)
+  const [cols, setCols] = useState(() =>
+    Object.fromEntries(CATEGORIES.map((c) => [c.id, 4]))
+  )
 
   useEffect(() => {
     sectionsRef.current.forEach((el) => {
@@ -148,20 +150,15 @@ export default function ProjectGallery() {
     })
   }, [])
 
+  const setColsFor = (id, n) => setCols((prev) => ({ ...prev, [id]: n }))
+
   return (
     <section className="gallery" id="work">
       {CATEGORIES.map((cat, i) => (
         <div key={cat.title} ref={(el) => (sectionsRef.current[i] = el)}>
           <CategoryHeader title={cat.title} index={i} />
-
-          {cat.id === 'portraits' && (
-            <GridControls cols={portraitCols} onChange={setPortraitCols} />
-          )}
-
-          <div
-            className="gallery__grid"
-            data-cols={cat.id === 'portraits' ? portraitCols : undefined}
-          >
+          <GridControls cols={cols[cat.id]} onChange={(n) => setColsFor(cat.id, n)} />
+          <div className="gallery__grid" data-cols={cols[cat.id]}>
             {cat.projects.map((p) => (
               <ProjectCard key={`${p.title}-${p.year}`} project={p} />
             ))}
