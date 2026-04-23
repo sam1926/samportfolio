@@ -1,11 +1,12 @@
 .showreel {
   background: var(--color-bg-black);
-  padding: 2rem 3rem 6rem;
+  padding: 2rem 0 6rem;
 }
 
 .showreel__header {
-  max-width: 1100px;
-  margin: 0 auto 4rem;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  padding: 0 3rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -32,34 +33,25 @@
   font-style: normal;
 }
 
-/* ---- Layout ---- */
-.showreel__content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* ---- Masonry grid ---- */
+.showreel__grid {
+  columns: 2;
+  column-gap: 8px;
+  padding: 0 3rem;
 }
 
-/* Video row — centred */
-.showreel__videos {
-  display: flex;
-  justify-content: center;
-}
-
-/* Images row — two equal columns */
-.showreel__images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  align-items: start;
-}
+.showreel__grid[data-cols="2"] { columns: 2; }
+.showreel__grid[data-cols="3"] { columns: 3; }
+.showreel__grid[data-cols="4"] { columns: 4; }
+.showreel__grid[data-cols="5"] { columns: 5; }
 
 /* ---- Shared card ---- */
 .featcard {
   position: relative;
   overflow: hidden;
   background: #080808;
+  break-inside: avoid;
+  margin-bottom: 8px;
 }
 
 .featcard__media {
@@ -76,14 +68,8 @@
   transform: scale(1.02);
 }
 
-/* Video card spans full available width up to a readable max */
-.featcard--video {
-  width: 100%;
-  max-width: 780px;
-}
-
 .featcard--video .featcard__media {
-  aspect-ratio: 16/9; /* fallback until metadata loads */
+  aspect-ratio: 16/9;
   object-fit: cover;
 }
 
@@ -120,17 +106,39 @@
 }
 
 /* ---- Mobile ---- */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .showreel__grid[data-cols] { columns: 3; }
+  .showreel__grid[data-cols="2"] { columns: 2; }
+}
+
+@media (max-width: 768px) {
   .showreel {
-    padding: 2rem 1.5rem 4rem;
+    padding: 2rem 0 4rem;
   }
 
-  .showreel__images {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .showreel__header {
+    padding: 0 1.5rem;
   }
 
-  .featcard--video {
-    max-width: 100%;
+  .showreel__grid {
+    column-gap: 4px;
+    padding: 0 0.75rem;
+  }
+
+  .featcard {
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .showreel__grid {
+    column-gap: 3px;
+    padding: 0 0.5rem;
+  }
+
+  .showreel__grid[data-cols] { columns: 2; }
+
+  .featcard {
+    margin-bottom: 3px;
   }
 }

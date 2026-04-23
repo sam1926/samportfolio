@@ -1,24 +1,13 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import IMAGES from '../data/images.json'
+import GridControls from './GridControls'
 import './ShowreelSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-function ImageCard({ src, role, year }) {
-  return (
-    <div className="featcard featcard--image">
-      <img className="featcard__media" src={src} alt={role} loading="lazy" />
-      <div className="featcard__info">
-        <span className="mono featcard__role">{role}</span>
-        <span className="mono featcard__year">{year}</span>
-      </div>
-    </div>
-  )
-}
-
-function VideoCard({ src, role, year }) {
+function FeatCard({ item }) {
   const videoRef = useRef(null)
 
   const handleMetadata = () => {
@@ -29,20 +18,24 @@ function VideoCard({ src, role, year }) {
   }
 
   return (
-    <div className="featcard featcard--video">
-      <video
-        className="featcard__media"
-        ref={videoRef}
-        src={src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        onLoadedMetadata={handleMetadata}
-      />
+    <div className={`featcard featcard--${item.type === 'video' ? 'video' : 'image'}`}>
+      {item.type === 'video' ? (
+        <video
+          className="featcard__media"
+          ref={videoRef}
+          src={item.src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          onLoadedMetadata={handleMetadata}
+        />
+      ) : (
+        <img className="featcard__media" src={item.src} alt={item.role} loading="lazy" />
+      )}
       <div className="featcard__info">
-        <span className="mono featcard__role">{role}</span>
-        <span className="mono featcard__year">{year}</span>
+        <span className="mono featcard__role">{item.role}</span>
+        <span className="mono featcard__year">{item.year}</span>
       </div>
     </div>
   )
@@ -51,12 +44,10 @@ function VideoCard({ src, role, year }) {
 export default function ShowreelSection() {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
+  const [cols, setCols] = useState(2)
 
   const FEATURED = IMAGES.featured || []
   if (FEATURED.length === 0) return null
-
-  const videos = FEATURED.filter((i) => i.type === 'video')
-  const images = FEATURED.filter((i) => i.type !== 'video')
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -89,24 +80,12 @@ export default function ShowreelSection() {
         <h2 className="showreel__heading">SELECTED<br /><em>PROJECTS</em></h2>
       </div>
 
-      <div className="showreel__content">
-        {/* Video — centred on top */}
-        {videos.length > 0 && (
-          <div className="showreel__videos">
-            {videos.map((item) => (
-              <VideoCard key={item.slug} {...item} />
-            ))}
-          </div>
-        )}
+      <GridControls cols={cols} onChange={setCols} />
 
-        {/* Images — two columns below */}
-        {images.length > 0 && (
-          <div className="showreel__images">
-            {images.map((item) => (
-              <ImageCard key={item.slug} {...item} />
-            ))}
-          </div>
-        )}
+      <div className="showreel__grid" data-cols={cols}>
+        {FEATURED.map((item) => (
+          <FeatCard key={item.slug} item={item} />
+        ))}
       </div>
     </section>
   )

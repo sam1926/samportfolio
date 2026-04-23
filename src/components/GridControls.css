@@ -1,0 +1,54 @@
+.grid-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 3rem 1.5rem;
+}
+
+.grid-controls__label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.grid-controls__buttons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.grid-controls__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 1px solid transparent;
+  color: rgba(255,255,255,0.2);
+  cursor: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.grid-controls__btn:hover {
+  color: rgba(255,255,255,0.6);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.grid-controls__btn--active {
+  color: var(--color-neon-red);
+  border-color: rgba(255, 49, 49, 0.3);
+}
+
+.grid-controls__btn--active:hover {
+  color: var(--color-neon-red);
+  border-color: rgba(255, 49, 49, 0.5);
+}
+
+@media (max-width: 768px) {
+  .grid-controls {
+    padding: 0 1.5rem 1rem;
+  }
+}
