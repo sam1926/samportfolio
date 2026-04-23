@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import CategoryHeader from './CategoryHeader'
@@ -13,6 +13,7 @@ function buildCategory(id, title) {
   if (real.length === 0) return null
 
   return {
+    id,
     title,
     projects: real.map((item) => ({
       title: item.title,
@@ -32,6 +33,52 @@ const CATEGORIES = [
   buildCategory('events',      'EVENTS'),
   buildCategory('misc',        'MISCELLANEOUS'),
 ].filter(Boolean)
+
+// ── Grid size control icons ───────────────────────────────────────────────────
+const COL_OPTIONS = [2, 3, 4, 5]
+
+function GridIcon({ cols }) {
+  const gap = 1.5
+  const totalGap = gap * (cols - 1)
+  const w = (16 - totalGap) / cols
+  const h = 20
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {Array.from({ length: cols }).map((_, i) => (
+        <rect
+          key={i}
+          x={i * (w + gap)}
+          y={0}
+          width={w}
+          height={h}
+          rx="0.5"
+          fill="currentColor"
+        />
+      ))}
+    </svg>
+  )
+}
+
+function GridControls({ cols, onChange }) {
+  return (
+    <div className="grid-controls">
+      <span className="mono grid-controls__label">Size</span>
+      <div className="grid-controls__buttons">
+        {COL_OPTIONS.map((n) => (
+          <button
+            key={n}
+            className={`grid-controls__btn ${cols === n ? 'grid-controls__btn--active' : ''}`}
+            onClick={() => onChange(n)}
+            aria-label={`${n} columns`}
+            title={`${n} columns`}
+          >
+            <GridIcon cols={n} />
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 // ── Card component ────────────────────────────────────────────────────────────
 function ProjectCard({ project }) {
@@ -83,6 +130,7 @@ function ProjectCard({ project }) {
 // ── Gallery section ───────────────────────────────────────────────────────────
 export default function ProjectGallery() {
   const sectionsRef = useRef([])
+  const [portraitCols, setPortraitCols] = useState(4)
 
   useEffect(() => {
     sectionsRef.current.forEach((el) => {
@@ -105,7 +153,15 @@ export default function ProjectGallery() {
       {CATEGORIES.map((cat, i) => (
         <div key={cat.title} ref={(el) => (sectionsRef.current[i] = el)}>
           <CategoryHeader title={cat.title} index={i} />
-          <div className="gallery__grid">
+
+          {cat.id === 'portraits' && (
+            <GridControls cols={portraitCols} onChange={setPortraitCols} />
+          )}
+
+          <div
+            className="gallery__grid"
+            style={cat.id === 'portraits' ? { columns: portraitCols } : undefined}
+          >
             {cat.projects.map((p) => (
               <ProjectCard key={`${p.title}-${p.year}`} project={p} />
             ))}
