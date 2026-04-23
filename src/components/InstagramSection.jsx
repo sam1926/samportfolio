@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 const INSTAGRAM_URL = 'https://www.instagram.com/sam.varghese_/'
 const HANDLE = '@sam.varghese_'
 
-// Pull 6 images from existing portfolio assets for the grid
+// Pull 12 images from existing portfolio assets for the grid
 const GRID_IMAGES = [
   { src: '/images/portraits/dsc00637.jpg',    alt: 'Portrait' },
   { src: '/images/portraits/dsc00699.jpg',    alt: 'Portrait' },
@@ -16,6 +16,12 @@ const GRID_IMAGES = [
   { src: '/images/portraits/dsc00821.jpg',    alt: 'Portrait' },
   { src: '/images/portraits/light-44.jpg',    alt: 'Portrait' },
   { src: '/images/portraits/light-55.jpg',    alt: 'Portrait' },
+  { src: '/images/portraits/light-56.jpg',    alt: 'Portrait' },
+  { src: '/images/portraits/light-57.jpg',    alt: 'Portrait' },
+  { src: '/images/portraits/light-58.jpg',    alt: 'Portrait' },
+  { src: '/images/automotive/dsc01474.jpg',   alt: 'Automotive' },
+  { src: '/images/automotive/dsc06181.jpg',   alt: 'Automotive' },
+  { src: '/images/automotive/dsc06192.jpg',   alt: 'Automotive' },
 ]
 
 export default function InstagramSection() {
