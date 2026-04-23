@@ -142,34 +142,57 @@
   color: rgba(255,255,255,0.4);
 }
 
-/* ---- Mobile ---- */
+/* ── Portrait section: data-cols controls (desktop only) ── */
+.gallery__grid[data-cols="2"] { columns: 2; }
+.gallery__grid[data-cols="3"] { columns: 3; }
+.gallery__grid[data-cols="4"] { columns: 4; }
+.gallery__grid[data-cols="5"] { columns: 5; }
+
+/* ── Responsive breakpoints ── */
 @media (max-width: 1100px) {
   .gallery__grid {
     columns: 3;
-    column-gap: 8px;
+    column-gap: 6px;
   }
+  /* clamp portrait picker to max 3 on tablet */
+  .gallery__grid[data-cols] { columns: 3; }
+  .gallery__grid[data-cols="2"] { columns: 2; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .gallery__grid {
-    columns: 2;
-    column-gap: 6px;
-    padding: 0 1.5rem 1rem;
+    columns: 3;
+    column-gap: 4px;
+    padding: 0 0.75rem 1rem;
   }
 
   .project-card {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 }
 
 @media (max-width: 600px) {
   .gallery__grid {
-    columns: 1;
-    column-gap: 0;
-    padding: 0 1rem 1rem;
+    columns: 3;
+    column-gap: 3px;
+    padding: 0 0.5rem 1rem;
+  }
+
+  /* clamp portrait picker to max 2 on small mobile */
+  .gallery__grid[data-cols] { columns: 2; }
+
+  .project-card {
+    margin-bottom: 3px;
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery__grid {
+    column-gap: 2px;
+    padding: 0 0.25rem 0.75rem;
   }
 
   .project-card {
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
 }

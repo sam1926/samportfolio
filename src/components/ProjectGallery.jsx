@@ -160,7 +160,7 @@ export default function ProjectGallery() {
 
           <div
             className="gallery__grid"
-            style={cat.id === 'portraits' ? { columns: portraitCols } : undefined}
+            data-cols={cat.id === 'portraits' ? portraitCols : undefined}
           >
             {cat.projects.map((p) => (
               <ProjectCard key={`${p.title}-${p.year}`} project={p} />
