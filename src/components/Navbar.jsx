@@ -1,17 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import './Navbar.css'
-
-const navLinks = [
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-]
 
 export default function Navbar() {
   const navRef = useRef(null)
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     gsap.fromTo(
@@ -19,17 +16,30 @@ export default function Navbar() {
       { y: -80, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 2.8 }
     )
-
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Prevent body scroll when menu open
+  // Close mobile menu on route change
+  useEffect(() => { setMenuOpen(false) }, [location.pathname])
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
+
+  const handleContact = (e) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    const scroll = () => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
+    if (location.pathname !== '/' && location.pathname !== '/about') {
+      navigate('/')
+      setTimeout(scroll, 400)
+    } else {
+      scroll()
+    }
+  }
 
   return (
     <>
@@ -37,33 +47,19 @@ export default function Navbar() {
         className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
         ref={navRef}
       >
-        <a
-          href="#hero"
-          className="navbar__logo mono"
-          onClick={(e) => {
-            e.preventDefault()
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-          }}
-        >
+        <Link to="/" className="navbar__logo mono">
           <span className="navbar__logo-dot" />
           S . V
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="navbar__links">
-          {navLinks.map((l) => (
-            <li key={l.label}>
-              <a href={l.href} className="navbar__link mono"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const target = document.querySelector(l.href)
-                  if (target) target.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
+          <li>
+            <Link to="/about" className="navbar__link mono">About</Link>
+          </li>
+          <li>
+            <a href="#contact" className="navbar__link mono" onClick={handleContact}>Contact</a>
+          </li>
         </ul>
 
         <button
@@ -76,7 +72,7 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile overlay — rendered as sibling of nav to avoid stacking context */}
+      {/* Mobile overlay */}
       <div className={`nav-overlay ${menuOpen ? 'nav-overlay--open' : ''}`}>
         <button
           className="nav-overlay__close"
@@ -87,22 +83,15 @@ export default function Navbar() {
           <span />
         </button>
         <ul className="nav-overlay__links">
-          {navLinks.map((l) => (
-            <li key={l.label}>
-              <a
-                href={l.href}
-                className="nav-overlay__link mono"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setMenuOpen(false)
-                  const target = document.querySelector(l.href)
-                  if (target) target.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
+          <li>
+            <Link to="/" className="nav-overlay__link mono">Home</Link>
+          </li>
+          <li>
+            <Link to="/about" className="nav-overlay__link mono">About</Link>
+          </li>
+          <li>
+            <a href="#contact" className="nav-overlay__link mono" onClick={handleContact}>Contact</a>
+          </li>
         </ul>
       </div>
     </>

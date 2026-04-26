@@ -96,7 +96,7 @@ export default function AboutSplit() {
           </h2>
           <p className="about__line about__body">
             I work across cinematic videography, portrait, automotive,
-            lifestyle, and event photography — bringing the same obsessive
+            lifestyle, and event photography bringing the same obsessive
             attention to light, composition, and mood to every discipline.
             Whether it's a moving image or a still, the goal is the same:
             make people feel something.
@@ -104,7 +104,7 @@ export default function AboutSplit() {
           <p className="about__line about__body">
             From high-speed car shoots on open roads to intimate portrait
             sessions and full event coverage, I adapt my visual language to
-            the subject — never the other way around.
+            the subject never the other way around.
           </p>
           <div className="about__line about__services">
             {['Cinematic Video', 'Portraits', 'Automotive', 'Lifestyle', 'Events', 'Editorial'].map((s) => (

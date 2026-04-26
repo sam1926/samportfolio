@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import LoadingScreen from './components/LoadingScreen'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import MarqueeReel from './components/MarqueeReel'
-import AboutSplit from './components/AboutSplit'
-import ShowreelSection from './components/ShowreelSection'
-import ProjectGallery from './components/ProjectGallery'
-import InstagramSection from './components/InstagramSection'
-import FooterTable from './components/FooterTable'
+
+import HomePage    from './pages/HomePage'
+import GalleryPage from './pages/GalleryPage'
+import AboutPage   from './pages/AboutPage'
 
 import './App.css'
 
@@ -21,53 +19,32 @@ export default function App() {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    if (loaded) {
-      // Refresh ScrollTrigger after mount
-      ScrollTrigger.refresh()
-    }
+    if (loaded) ScrollTrigger.refresh()
   }, [loaded])
 
   return (
-    <>
-      {/* Custom cursor — desktop only, hidden via CSS on touch */}
+    <HashRouter>
       <CustomCursor />
-
-      {/* Grain overlay */}
       <div className="grain-overlay" aria-hidden="true" />
 
-      {/* Loading screen */}
       {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
 
-      {/* Main page — rendered but invisible until loader completes */}
       <div className={`page ${loaded ? 'page--visible' : ''}`}>
         <Navbar />
-
         <main>
-          {/* 1. Dark hero + WebGL */}
-          <Hero />
-
-          {/* Red marquee strip */}
-          <MarqueeReel />
-
-          {/* 2. Light about */}
-          <AboutSplit />
-
-          {/* 3. Dark featured showreel with WebGL distortion hover */}
-          <ShowreelSection />
-
-          {/* Red marquee strip (reversed) */}
-          <MarqueeReel reverse />
-
-          {/* 4. Dark project grid */}
-          <ProjectGallery />
-
-          {/* 5. Instagram feed */}
-          <InstagramSection />
-
-          {/* 6. Light footer / contact */}
-          <FooterTable />
+          <Routes>
+            <Route path="/"           element={<HomePage />} />
+            <Route path="/portraits"  element={<GalleryPage category="portraits"   title="PORTRAITS" />} />
+            <Route path="/automotive" element={<GalleryPage category="automotive"  title="AUTOMOTIVE" />} />
+            <Route path="/videography"element={<GalleryPage category="videography" title="VIDEOGRAPHY" />} />
+            <Route path="/lifestyle"  element={<GalleryPage category="lifestyle"   title="LIFESTYLE" />} />
+            <Route path="/events"     element={<GalleryPage category="events"      title="EVENTS" />} />
+            <Route path="/misc"       element={<GalleryPage category="misc"        title="MISCELLANEOUS" />} />
+            <Route path="/selected"   element={<GalleryPage category="featured"    title="SELECTED PROJECTS" />} />
+            <Route path="/about"      element={<AboutPage />} />
+          </Routes>
         </main>
       </div>
-    </>
+    </HashRouter>
   )
 }
