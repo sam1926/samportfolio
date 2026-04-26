@@ -8,17 +8,30 @@ import './GalleryPage.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
+function PlayIcon() {
+  return (
+    <svg className="gc__play" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1"/>
+      <polygon points="10,8 17,12 10,16" fill="currentColor"/>
+    </svg>
+  )
+}
+
 function GalleryCard({ item }) {
   const overlayRef = useRef(null)
+  const isVideo = item.type === 'video'
 
   return (
     <article
-      className="gc"
+      className={`gc ${isVideo ? 'gc--video' : ''}`}
       onMouseEnter={() => gsap.to(overlayRef.current, { opacity: 1, duration: 0.35 })}
       onMouseLeave={() => gsap.to(overlayRef.current, { opacity: 0, duration: 0.35 })}
     >
-      {item.type === 'video' ? (
-        <video className="gc__media" src={item.src} autoPlay muted loop playsInline />
+      {isVideo ? (
+        <div className="gc__video-thumb">
+          <PlayIcon />
+          <span className="mono gc__video-title">{item.title}</span>
+        </div>
       ) : (
         <img className="gc__media" src={item.src} alt={item.role} loading="lazy" />
       )}

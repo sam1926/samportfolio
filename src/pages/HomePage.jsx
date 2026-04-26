@@ -46,6 +46,17 @@ export default function HomePage() {
     <div className="hp">
       {/* Fixed preview panel — right half */}
       <div className="hp__preview" aria-hidden="true">
+        {/* Default hero video — visible when nothing is hovered */}
+        <video
+          className={`hp__preview-video ${hovered === null ? 'hp__preview-video--active' : ''}`}
+          src="/video/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+
+        {/* Category still images — swap in on hover */}
         {CATEGORIES.map((cat, i) => {
           const src = getPreview(cat.id)
           if (!src) return null

@@ -21,6 +21,21 @@
   overflow: hidden;
 }
 
+.hp__preview-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: brightness(0.6);
+}
+
+.hp__preview-video--active {
+  opacity: 1;
+}
+
 .hp__preview-img {
   position: absolute;
   inset: 0;
@@ -46,6 +61,7 @@
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
+  background: var(--color-bg-black);
 }
 
 /* ── Identity block ────────────────────────────────────────── */

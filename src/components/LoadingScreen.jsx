@@ -3,14 +3,14 @@ import { gsap } from 'gsap'
 import IMAGES from '../data/images.json'
 import './LoadingScreen.css'
 
-// ── Collect every asset URL from images.json ──────────────────────────────────
+// ── Only preload the hero video + first image of each category ────────────────
+// Full gallery images lazy-load on demand; this keeps the initial load fast.
 function collectAssets() {
   const images = []
-  const videos = []
-  Object.values(IMAGES).flat().forEach((item) => {
-    if (!item.src) return
-    if (item.type === 'video') videos.push(item.src)
-    else images.push(item.src)
+  const videos = ['/video/hero.mp4']
+  Object.entries(IMAGES).forEach(([, items]) => {
+    const first = items.find(i => i.type === 'image' || !i.type)
+    if (first?.src) images.push(first.src)
   })
   return { images, videos }
 }
