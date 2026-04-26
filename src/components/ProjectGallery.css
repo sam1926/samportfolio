@@ -14,7 +14,7 @@
 .project-card {
   position: relative;
   overflow: hidden;
-  cursor: none;
+
   background: #0a0a0a;
   break-inside: avoid;
   display: block;

@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import LoadingScreen from './components/LoadingScreen'
-import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 
 import HomePage    from './pages/HomePage'
@@ -24,8 +23,7 @@ export default function App() {
 
   return (
     <HashRouter>
-      <CustomCursor />
-      <div className="grain-overlay" aria-hidden="true" />
+<div className="grain-overlay" aria-hidden="true" />
 
       {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
 
